@@ -1,4 +1,4 @@
-# 🚀 CollabFlow — Enterprise Real-Time Project Management & Kanban Platform
+﻿# 🚀 CollabFlow — Enterprise Real-Time Project Management & Kanban Platform
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React_18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
@@ -85,7 +85,6 @@ model User {
   passwordHash String
   role         String        @default("MEMBER") // ADMIN, MEMBER
   createdAt    DateTime      @default(now())
-  
   boards       Board[]
   tasks        Task[]        @relation("AssignedTasks")
   activities   ActivityLog[]
@@ -125,8 +124,8 @@ model Task {
   dueDate     DateTime?
   assigneeId  String?
   assignee    User?         @relation("AssignedTasks", fields: [assigneeId], references: [id])
-  tags        String        @default("[]") // JSON string array
-  subtasks    String        @default("[]") // JSON checklist items
+  tags        String        @default("[]")     // JSON string array
+  subtasks    String        @default("[]")     // JSON checklist items
   activities  ActivityLog[]
 }
 
@@ -185,7 +184,7 @@ Open [http://localhost:5173](http://localhost:5173) in your browser. Click **"�
 
 ## 🚢 Production Deployment Guide
 
-### A. Deploy Server to [Render.com](https://render.com)
+### A. Deploy Server to [Render.com](https://render.com/)
 1. Push this repository to GitHub.
 2. Create a new **Web Service** on Render connected to your repository.
 3. Configure the service:
@@ -195,7 +194,7 @@ Open [http://localhost:5173](http://localhost:5173) in your browser. Click **"�
 4. Add Environment Variables in Render:
    - `PORT`: `5000`
    - `JWT_SECRET`: *(Generate a secure random string)*
-   - `DATABASE_URL`: *(Render PostgreSQL connection string or Supabase URL)*
+   - `DATABASE_URL`: *(Render PostgreSQL connection string or Supabase/Neon URL)*
    - `CORS_ORIGIN`: `https://your-collabflow-client.vercel.app`
    - `NODE_ENV`: `production`
 5. Optional: Run seed script via Render Shell:
@@ -203,7 +202,7 @@ Open [http://localhost:5173](http://localhost:5173) in your browser. Click **"�
    npx tsx prisma/seed.ts
    ```
 
-### B. Deploy Client to [Vercel](https://vercel.com)
+### B. Deploy Client to [Vercel](https://vercel.com/)
 1. Import your GitHub repository in Vercel.
 2. Configure project settings:
    - **Framework Preset:** Vite
@@ -236,5 +235,3 @@ When presenting this project in technical interviews:
 
 ## 📄 License
 MIT License © 2026 CollabFlow
-#   C o l l a b F l o w  
- 
