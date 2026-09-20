@@ -184,39 +184,6 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173) in your browser. Click **"🚀 Explore Live Demo as Guest"** for instant 1-click access!
 
----
-
-## 🚢 Production Deployment Guide
-
-### A. Deploy Server to [Render.com](https://render.com/)
-1. Push this repository to GitHub.
-2. Create a new **Web Service** on Render connected to your repository.
-3. Configure the service:
-   - **Root Directory:** `server`
-   - **Build Command:** `npm install && npx prisma generate && npx prisma db push && npm run build`
-   - **Start Command:** `npm start`
-4. Add Environment Variables in Render:
-   - `PORT`: `5000`
-   - `JWT_SECRET`: *(Generate a secure random string)*
-   - `DATABASE_URL`: *(Render PostgreSQL connection string or Supabase/Neon URL)*
-   - `CORS_ORIGIN`: `https://your-collabflow-client.vercel.app`
-   - `NODE_ENV`: `production`
-5. Optional: Run seed script via Render Shell:
-   ```bash
-   npx tsx prisma/seed.ts
-   ```
-
-### B. Deploy Client to [Vercel](https://vercel.com/)
-1. Import your GitHub repository in Vercel.
-2. Configure project settings:
-   - **Framework Preset:** Vite
-   - **Root Directory:** `client`
-   - **Build Command:** `npm run build`
-   - **Output Directory:** `dist`
-3. Add Environment Variables in Vercel:
-   - `VITE_API_BASE_URL`: `https://your-render-service.onrender.com/api`
-   - `VITE_SOCKET_URL`: `https://your-render-service.onrender.com`
-4. Click **Deploy**.
 
 ---
 
