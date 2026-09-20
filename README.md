@@ -1,4 +1,4 @@
-﻿# 🚀 CollabFlow — Enterprise Real-Time Project Management & Kanban Platform
+# 🚀 CollabFlow — Enterprise Real-Time Project Management & Kanban Platform
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React_18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
@@ -157,11 +157,15 @@ npm run install:all
 ```
 
 ### 2. Configure Environment Variables
-Server `.env` (`server/.env`):
+Copy the example environment file:
+```bash
+cp server/.env.example server/.env
+```
+Ensure your `server/.env` has your own secret key:
 ```env
 PORT=5000
 DATABASE_URL="file:./dev.db"
-JWT_SECRET="collabflow_super_secret_jwt_key_2026_enterprise_showcase"
+JWT_SECRET="your_secret_key_here"
 CORS_ORIGIN="http://localhost:5173"
 NODE_ENV="development"
 ```
