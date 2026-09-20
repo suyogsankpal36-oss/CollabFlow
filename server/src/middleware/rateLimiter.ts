@@ -1,4 +1,4 @@
-import rateLimit, { ipKeyGenerator } from 'express-rate-limit';
+import rateLimit from 'express-rate-limit';
 import slowDown from 'express-slow-down';
 import { Request, Response } from 'express';
 
@@ -16,11 +16,7 @@ const PUBLIC_MAX_REQUESTS = parseInt(process.env.RATE_LIMIT_PUBLIC_MAX || '60', 
  * Helper to get normalized client IP supporting IPv6/IPv4
  */
 function getClientIp(req: Request): string {
-  try {
-    return ipKeyGenerator(req);
-  } catch {
-    return req.ip || req.socket.remoteAddress || '127.0.0.1';
-  }
+  return req.ip || req.socket.remoteAddress || '127.0.0.1';
 }
 
 /**
